@@ -1,5 +1,5 @@
 FROM ubuntu:xenial
-MAINTAINER Corentin Delcourt <codl@codl.fr>
+MAINTAINER Frost Lagoa <contact@kaleidomultimeios.com>
 
 ENV DRAWPILE_VERSION 2.0.10
 
@@ -14,7 +14,7 @@ RUN curl -s https://drawpile.net/files/src/drawpile-${DRAWPILE_VERSION}.tar.gz \
 
 RUN mkdir -p /tmp/drawpile-build && \
     cd /tmp/drawpile-build && \
-    cmake /tmp/drawpile-${DRAWPILE_VERSION} -DCMAKE_INSTALL_PREFIX=/usr -DCLIENT=off -DSERVERGUI=OFF && \
+    cmake /tmp/drawpile-${DRAWPILE_VERSION} -DCMAKE_INSTALL_PREFIX=/usr -DCLIENT=off -DSERVERGUI=ON && \
     make install && \
     useradd --system drawpile && \
     cd / && rm -rf /tmp/drawpile-${DRAWPILE_VERSION} /tmp/drawpile-build
